@@ -1,77 +1,96 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register - HealtyApp</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-800': '#1e40af',
+                        'blue-600': '#2563eb',
+                        'blue-500': '#3b82f6',
+                        'blue-100': '#dbeafe',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-800">
+                <i class="fas fa-dumbbell mr-2"></i>HealtyApp
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-gray-600 hover:text-blue-800">
+                    <i class="fas fa-user-circle text-xl"></i>
+                </a>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-md mx-auto mt-10 bg-white rounded-3xl shadow-lg p-8">
+        <h2 class="text-3xl font-extrabold text-blue-800 mb-6 text-center">Register</h2>
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                <input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 @error('name') border-red-500 @enderror" />
+                @error('name')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 @error('email') border-red-500 @enderror" />
+                @error('email')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700 font-semibold mb-2">Password</label>
+                <input id="password" type="password" name="password" required autocomplete="new-password"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 @error('password') border-red-500 @enderror" />
+                @error('password')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="password-confirm" class="block text-gray-700 font-semibold mb-2">Confirm Password</label>
+                <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+            </div>
+
+            <div class="flex justify-end">
+                <button type="submit" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-3xl font-semibold shadow-lg hover:shadow-xl transition">
+                    Register
+                </button>
+            </div>
+        </form>
+    </main>
+    <br>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-24 py-6">
+        <div class="container mx-auto px-4 text-center text-gray-500">
+            <p>© 2025 HealtyApp. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

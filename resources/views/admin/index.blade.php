@@ -1,68 +1,217 @@
-@extends('layout.app')
+@extends('layouts.app')
+<script src="https://cdn.tailwindcss.com"></script>
+
 
 @section('content')
-<div class="p-6">
-    <h1 class="text-2xl font-bold text-blue-800 mb-6">Dashboard Admin</h1>
+<div class="admin-container">
+    <h1 class="admin-title">Dashboard Admin</h1>
     
     <!-- Stats Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500">
-            <h3 class="text-gray-500">Total Workouts</h3>
-            <p class="text-3xl font-bold text-blue-800">124</p>
+    {{-- <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Total Workouts</h3>
+            <p>124</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500">
-            <h3 class="text-gray-500">Total Exercises</h3>
-            <p class="text-3xl font-bold text-blue-800">56</p>
+        <div class="stat-card">
+            <h3>Total Exercises</h3>
+            <p>56</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500">
-            <h3 class="text-gray-500">Active Users</h3>
-            <p class="text-3xl font-bold text-blue-800">892</p>
+        <div class="stat-card">
+            <h3>Active Users</h3>
+            <p>892</p>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Recent Workouts -->
-    <div class="bg-white p-6 rounded-lg shadow">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl font-bold text-blue-800">Recent Workouts</h2>
-            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    <div class="recent-workouts">
+        <div class="section-header">
+            <h2 class="section-title">User Workout </h2>
+            <button class="view-all-btn">
                 View All
             </button>
         </div>
         
-        <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-blue-50">
-                <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-blue-800 uppercase">Name</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-blue-800 uppercase">Difficulty</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-blue-800 uppercase">Exercises</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-blue-800 uppercase">Actions</th>
+        <table class="workout-table">
+            <thead>
+                <tr><th>No.</th>
+                    <th>Name User</th>
+                    <th>Exercises</th>
+                    <th>Reps</th>
+                    <th>Sets</th>
+                    <th>Status</th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+            @foreach ($workout as $data)
+            <tbody>
                 <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">Beginner Full Body</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">Beginner</span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">8</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <button class="text-blue-600 hover:text-blue-800 mr-3">Edit</button>
-                        <button class="text-red-600 hover:text-red-800">Delete</button>
-                    </td>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{ $data->user ? $data->user->name : 'unk' }}</td>
+                    <td>{{$data->exercises}}</td>
+                    <td>{{$data->reps}}</td>
+                    <td>{{$data->sets}}</td>
+                    <td><span class="user-role">Completed</span></td>
+                
                 </tr>
-                <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">Advanced HIIT</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">Advanced</span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">12</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <button class="text-blue-600 hover:text-blue-800 mr-3">Edit</button>
-                        <button class="text-red-600 hover:text-red-800">Delete</button>
-                    </td>
-                </tr>
+                
             </tbody>
+            @endforeach
+
         </table>
     </div>
 </div>
+
+<style>
+    /* General Styles */
+.admin-container {
+    padding: 1.5rem;
+}
+
+.admin-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.stat-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #3b82f6;
+}
+
+.stat-card h3 {
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.stat-card p {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+/* Recent Workouts Section */
+.recent-workouts {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+.view-all-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+}
+
+.view-all-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Table Styles */
+.workout-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.workout-table thead {
+    background-color: #eff6ff;
+}
+
+.workout-table th {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #1e3a8a;
+    text-transform: uppercase;
+}
+
+.workout-table td {
+    padding: 1rem 1.5rem;
+    white-space: nowrap;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.difficulty-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+}
+
+.badge-beginner {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-advanced {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.edit-btn {
+    color: #2563eb;
+    margin-right: 0.75rem;
+}
+
+.edit-btn:hover {
+    color: #1e40af;
+}
+
+.delete-btn {
+    color: #dc2626;
+}
+
+.delete-btn:hover {
+    color: #b91c1c;
+}
+.user-role {
+  font-weight: bold;
+  color: #3b82f6; /* Warna biru */
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #eff6ff;
+}
+</style>
 @endsection
