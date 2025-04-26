@@ -89,7 +89,7 @@
     <!-- Footer -->
     <footer class="bg-white border-t mt-24 py-6">
         <div class="container mx-auto px-4 text-center text-gray-500">
-            <p>© 2025 HealtyApp. All rights reserved.</p>
+            <p>© 2025 HealtyApp. Created by El-Naufal.</p>
         </div>
     </footer>
 </body>

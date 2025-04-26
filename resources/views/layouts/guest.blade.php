@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="border-t border-blue-800 mt-8 pt-6 text-center text-blue-300">
-                <p>&copy; 2025 Healty. All rights reserved.</p>
+                <p>&copy; 2025 Healty. Created by El-Naufal.</p>
             </div>
         </div>
     </footer>
