@@ -257,6 +257,76 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Pull Up-->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon" style="background-color: #ede9fe;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#5b21b6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </div>
+                    <h3>Pull Up</h3>
+                </div>
+                <p>An isometric core exercise that strengthens your abs, back, and shoulders while being gentle on your back.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="badge badge-beginner">Beginner</span>
+                    <a href="https://youtu.be/P8s_LRBp9lo?si=Zlm7enIJ-VBjrpK8" target="_blank" class="link">
+                        Watch Tutorial
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+             <!-- Sit Up-->
+             <div class="card">
+                <div class="card-header">
+                    <div class="icon" style="background-color: #ede9fe;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#5b21b6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </div>
+                    <h3>Sit Up</h3>
+                </div>
+                <p>An isometric core exercise that strengthens your abs, back, and shoulders while being gentle on your back.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="badge badge-beginner">Beginner</span>
+                    <a href="https://youtube.com/shorts/wIUwcbUbatw?si=ugMpH5uSKxOdYTL1" target="_blank" class="link">
+                        Watch Tutorial
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Squat Jump-->
+        <div class="card">
+            <div class="card-header">
+                <div class="icon" style="background-color: #ede9fe;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#5b21b6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </div>
+                <h3>Squat Jump</h3>
+            </div>
+            <p>An isometric core exercise that strengthens your abs, back, and shoulders while being gentle on your back.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="badge badge-beginner">Beginner</span>
+                <a href="https://youtube.com/shorts/wIUwcbUbatw?si=ugMpH5uSKxOdYTL1" target="_blank" class="link">
+                    Watch Tutorial
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
         </div>
         
         <!-- Add New Button -->
